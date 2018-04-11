@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/.."
+./aarch64-softmmu/qemu-system-aarch64 \
+-M virt \
+-append 'root=/dev/vda nokaslr norandmaps printk.devkmsg=on printk.time=y' \
+-cpu cortex-a57 \
+-drive file="${dir}/out/aarch64/buildroot/images/rootfs.ext2.qcow2,if=virtio,format=qcow2" \
+-kernel "${dir}/out/aarch64/buildroot/images/Image" \
+-monitor telnet::45454,server,nowait \
+-nographic \
+-serial mon:stdio \
+-device rtl8139,netdev=net0 \
+-netdev user,hostfwd=tcp::45455-:45455,hostfwd=tcp::45456-:22,id=net0 \
