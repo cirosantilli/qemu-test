@@ -21,5 +21,5 @@ time \
 "
 cmd="${cmd} $@"
 echo "$cmd"
-eval "$cmd -icount 'shift=7,rr=record,rrfile=replay.bin'"
-eval "$cmd -icount 'shift=7,rr=replay,rrfile=replay.bin' -S -s"
+eval "$cmd -icount 'shift=7,rr=record,rrfile=replay.bin,rrsnapshot=init'"
+eval "$cmd -icount 'shift=7,rr=replay,rrfile=replay.bin,rrsnapshot=init' -S -s"
