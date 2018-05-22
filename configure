@@ -1,0 +1,7 @@
+./configure \
+  --enable-debug \
+  --enable-trace-backends=simple \
+  --target-list=x86_64-softmmu,arm-softmmu,aarch64-softmmu \
+  --enable-sdl \
+  --with-sdlabi=2.0 \
+;

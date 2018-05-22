@@ -13,7 +13,7 @@ Usage:
     cd ..
     git clone qemu
     cd qemu
-    ./configure --enable-debug --enable-trace-backends=simple --target-list=x86_64-softmmu,arm-softmmu,aarch64-softmmu
+    ../qemu-test/configure
     make -j "$(nproc)"
     ../qemu-test/$arch/<script>
 

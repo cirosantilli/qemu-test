@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/.."
 ./x86_64-softmmu/qemu-system-x86_64 \
--append 'root=/dev/vda nopat nokaslr norandmaps printk.devkmsg=on printk.time=y console=ttyS0' \
--device rtl8139,netdev=net0 \
+-append 'root=/dev/vda' \
 -drive file="${dir}/out/x86_64/buildroot/images/rootfs.ext2.qcow2,if=virtio,format=qcow2" \
 -kernel "${dir}/out/x86_64/buildroot/images/bzImage" \
--monitor telnet::45454,server,nowait \
--netdev user,hostfwd=tcp::45455-:45455,hostfwd=tcp::45456-:22,id=net0 \
--nographic \
--serial mon:stdio \
+"$@" \
+;
