@@ -2,11 +2,10 @@
 dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/.."
 ./arm-softmmu/qemu-system-arm \
 -M virt \
--append 'root=/dev/vda console_msg_format=syslog nokaslr norandmaps printk.devkmsg=on printk.time=y' \
+-append 'root=/dev/vda' \
 -cpu cortex-a15 \
 -drive file="${dir}/out/arm/buildroot/images/rootfs.ext2.qcow2,if=virtio,format=qcow2" \
 -kernel "${dir}/out/arm/buildroot/images/zImage" \
--nographic \
--device rtl8139,netdev=net0 \
--netdev user,hostfwd=tcp::45455-:45455,hostfwd=tcp::45456-:22,id=net0 \
-
+-serial mon:stdio \
+"$@" \
+;

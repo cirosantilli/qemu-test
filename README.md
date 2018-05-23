@@ -8,7 +8,7 @@ Usage:
 
     git clone qemu-test
     cd qemu-test
-    wget https://github.com/cirosantilli/linux-kernel-module-cheat/releases/download/uploads/images-ab21ef58deed8536bc159c2afd680a4fabd68510.zip
+    wget https://github.com/cirosantilli/linux-kernel-module-cheat/releases/download/sha-dbecf15f8ff9169e64e5f9402a692647174860ae/images-dbecf15f8ff9169e64e5f9402a692647174860ae.zip
     unzip images-*.zip
     cd ..
     git clone qemu
